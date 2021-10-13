@@ -1,0 +1,35 @@
+<div *ngIf="state == 0" class="loader-container"><div class="loader"></div></div>
+<div class="form-container" *ngIf="state == 1">
+
+  <!--Section-->
+  <section class="card">
+    <!-- Default form register -->
+    <form (ngSubmit)="generateVideo()">
+
+      <div class="title">Please fill your details below in order to generate your video</div>
+      <br>
+      <!-- Parameters -->
+      <div *ngFor="let property of properties; let i = index ">
+        <br>
+        <div class="text"><img class="icon" [src]="getIcon(property.key)">{{property.key}}</div>
+        <input type="text" class="form-control" [(ngModel)]="results[i].val" [ngModelOptions]="{standalone: true}" />
+      </div>
+
+      <br>
+      <!-- Generate button -->
+      <div class="btn-container">
+        <button class="btn-submit" type="submit">Generate your video!</button>
+      </div>
+      <br>
+    </form>
+    <!-- Default form register -->
+  </section>
+  <!--Section -->
+
+</div>
+
+<div *ngIf="state == 2"><div class="loader"></div></div>
+
+
+
+<div *ngIf="state == 4">Ohhhh... We have an error! <br> Please try later</div>

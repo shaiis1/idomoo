@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+/* .vjs-big-play-centered .vjs-ended{
+    display: none;
+} */
+
+.video-js.vjs-16-9, .video-js.vjs-4-3, .video-js.vjs-fluid {
+    width: 100%;
+    max-width: 100%;
+    height: 0;
+    margin: 2rem 0;
+}

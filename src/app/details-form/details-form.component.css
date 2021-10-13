@@ -1,0 +1,74 @@
+.form-container{
+    background-color: red; /* For browsers that do not support gradients */
+  background-image: linear-gradient(#6495ED, #708090, #6495ED);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.form-control{
+  border: 1px solid #CED4EF;
+}
+
+.icon{
+  margin: 0 0.5rem;
+  height: 1.2rem;
+}
+
+.title{
+  color: #708090;
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.btn-container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-submit{
+  border-radius: 9px;
+  border: 2px solid royalblue;
+  background-color: linen;
+  font-family: cursive;
+  color: #708032;
+}
+
+.text{
+  font-family: cursive;
+  font-size: 1.15rem;
+}
+
+.card{
+  margin: 11rem auto;
+  max-width: 77%;
+}
+
+.loader-container{
+  position: relative;
+  left: 50%;
+  margin: 5rem auto;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
