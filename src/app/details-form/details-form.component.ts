@@ -40,7 +40,6 @@ export class DetailsFormComponent {
   }
 
   getIcon(data: any){
-    debugger
     var imgPath = "../../assets/icons/";
     switch(data){
       case "Address":
@@ -86,15 +85,19 @@ export class DetailsFormComponent {
       },
       data: this.results
     };
-
     //send form
     this.apiService.postMessage(data).subscribe(
       resp => {
+        if(resp.status.toLowerCase() == "error")
+        {
+          this.state = 4;
+          return;
+        }
+        else{
         this.videoUrl = resp.output.video[0].links.url;
         let checkVideoUrl = resp.output.video[0].links.check_status_url;
         let self = this;
         this.state = 2;
-
         //check when video is ready
         var id = setInterval(isVideoReady, 500);
         function isVideoReady() {
@@ -103,16 +106,14 @@ export class DetailsFormComponent {
               clearInterval(id);
               self.addScript();
               self.state = 3;
-            } else if (resp.status == 'ERROR' || resp.status == 'NOT_EXIST') {
+            } else if (resp.status.toLowerCase() == 'error' || resp.status.toLowerCase() == 'not_exist') {
               clearInterval(id);
               self.state = 4;
             }
           });
         }
-      },
-      Error => {
-        this.state = 4;
       }
+    }
     );
   }
 
